@@ -1,0 +1,7 @@
+__pycache__
+error.log
+local_config.py
+*.orig
+gmon.out
+comparison*
+iphone_comparison
