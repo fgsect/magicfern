@@ -1,17 +1,37 @@
-# Camera Fingerprinting  
+# MagicFern 
 
+This repository contains the native C++ implementation to camera noise extraction based on PRNU from images and determining the affiliation to other camera noise fingerprints using the Peak-to-correlation energy (PCE).  
+The code was used for our paper **Camera Fingerprinting Authentication Revisited**.
 
-Don't use camera fingerprinting for authentication.
+Paper
 -----------
-[See our RAID2020 paper here.](https://www.usenix.org/conference/raid2020/presentation/maier)
+> [Camera Fingerprinting Authentication Revisited](https://www.usenix.org/conference/raid2020/presentation/maier)  
+> D. Maier, H. Erb, P. Mullan and V. Haupert  
+> The 23rd International Symposium on Research in Attacks, Intrusions and Defenses (RAID 2020)
 
+If you find our work useful in your research please consider citing our paper:  
+	
+~~~~
+@inproceedings {259727,  
+author = {Dominik Maier and Henrik Erb and Patrick Mullan and Vincent Haupert},  
+title = {Camera Fingerprinting Authentication Revisited},  
+booktitle = {23rd International Symposium on Research in Attacks, Intrusions and Defenses ({RAID} 2020)},  
+year = {2020},  
+isbn = {978-1-939133-18-2},  
+address = {San Sebastian},  
+pages = {31--46},  
+url = {https://www.usenix.org/conference/raid2020/presentation/maier},  
+publisher = {{USENIX} Association},  
+month = oct,  
+}  
+~~~~
 
 What is it?
 -----------
 
 This program is a C++ implementation of a digital fingerprint extraction from a camera sensor  
 and determines the Peak-correlation-to-correlation-ratio (PCE) detection statistic.  
-The code is based on a Matlab implementation from M. Goljan et. al.. More information about his  
+The code is based on a Matlab implementation from M. Goljan et. al.. More information about their  
 work is found here: http://dde.binghamton.edu/download/camera_fingerprint/  
   
 To work properly the program needs a stack of images of the same camera sensor. It is advisable  
@@ -22,33 +42,32 @@ probability and the pvalue. For authentication purposes the PCE is sufficient. A
 above at least 60 can be considered as the same camera sensor. 
 
 
-Downloading
+Requirements
 -----------
 
-To get started, it is necessary to install OpenCV 3.1.0 (See link below for tutorial).  
-Installing OpenCV 3.1.0 on Ubuntu:  
-http://embedonix.com/articles/image-processing/installing-opencv-3-1-0-on-ubuntu/
+To get started, it is necessary to have OpenCV 3.1.0 preinstalled.
 
 
-Use Case - example
+Usage - example
 ------------------
 
 The arguments need to be file directories to the images,  
 which should be used for the Camera Identification.  
   
-usage: MagicFern [-h] --references REFERENCES [REFERENCES ...] [--candidates  
+**Example:**  
+MagicFern [-h] --references REFERENCES [REFERENCES ...] [--candidates  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CANDIDATES [CANDIDATES ...]] [--crop CROP] [--valid-format]  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[--save-reference]  
   
-positional arguments:  
+**Positional arguments:**  
 --references REFERENCES [REFERENCES ...], -r REFERENCES [REFERENCES ...]  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A list of images used to calculate the fingerprint.  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alternatively, one might also specify a single path  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pointing to a YML file containing the reference finger-  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print directly as an OpenCV matrix.  
   
-optional arguments:  
--h, --help            show this help message and exit  
+**Optional arguments:**  
+-h, --help            shows this help message and exits  
 
 --candidates CANDIDATES [CANDIDATES ...], -c CANDIDATES [CANDIDATES ...]  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A list of images, each used as a candidate for the  
@@ -68,7 +87,6 @@ optional arguments:
   
 Contacts - Copyright
 --------------------
-For more information about the functionality:  
-http://dde.binghamton.edu/download/camera_fingerprint/  
-For bug reports:  
+This code is for non-commercial use only.  
+For bug reports feel free to e-mail me at  
 henrik.erb ( at ) fau.de
