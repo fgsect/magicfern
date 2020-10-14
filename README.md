@@ -1,10 +1,14 @@
 # Camera Fingerprinting  
 
 
+Don't use camera fingerprinting for authentication.
+-----------
+[See our RAID2020 paper here.](https://www.usenix.org/conference/raid2020/presentation/maier)
+
 
 What is it?
 -----------
-  
+
 This program is a C++ implementation of a digital fingerprint extraction from a camera sensor  
 and determines the Peak-correlation-to-correlation-ratio (PCE) detection statistic.  
 The code is based on a Matlab implementation from M. Goljan et. al.. More information about his  
