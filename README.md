@@ -88,5 +88,4 @@ MagicFern [-h] --references REFERENCES [REFERENCES ...] [--candidates
 Contacts - Copyright
 --------------------
 This code is for non-commercial use only.  
-For bug reports feel free to e-mail me at  
-henrik.erb ( at ) fau.de
+For bug reports feel free to open an issue.
